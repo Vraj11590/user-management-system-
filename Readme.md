@@ -16,3 +16,7 @@
 # Being F-ing Awesome!
 # Ruby on Rails
 # No PostgresQL Yet
+
+
+#using cURL it download images..
+$ curl -o app/assets/images/rails.png -OL railstutorial.org/rails.png
