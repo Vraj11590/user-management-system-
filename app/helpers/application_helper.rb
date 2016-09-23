@@ -13,6 +13,5 @@ module ApplicationHelper
   end
 
   def add_links
-
   end
 end
