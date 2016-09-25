@@ -6,9 +6,15 @@ class UserTest < ActiveSupport::TestCase
   # end
 
   def setup
-    @user = User.new(name: "Vrajesh Patel", email: "user@example.com", phone: 8622222653)
+    @user = User.new(name: "Vrajesh Patel", email: "user@example.com", phone: 8622 )
   end
 
+  #test for unique ness in email
+  test "email addresses should be unique" do
+    duplicate_user = @user.dup
+    @user.save
+    assert_not duplicate_user.valid? #this should be false
+  end
 
   test "should be valid" do
     assert @user.valid?
@@ -24,8 +30,13 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
   test "email validation" do
-    
+    assert @user.valid?
   end
-  
+
+  test "all emails should be downcased" do
+    @user.save
+    assert_equal @user.email, @user.email.downcase
+  end
+
 
 end
