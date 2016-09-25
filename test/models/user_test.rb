@@ -6,7 +6,7 @@ class UserTest < ActiveSupport::TestCase
   # end
 
   def setup
-    @user = User.new(name: "Vrajesh Patel", email: "user@example.com", phone: 8622 )
+    @user = User.new(name: "Vrajesh Patel", email: "user@example.com", phone: 8622, password: "foobar", password_confirmation: "foobar" )
   end
 
   #test for unique ness in email
@@ -38,5 +38,13 @@ class UserTest < ActiveSupport::TestCase
     assert_equal @user.email, @user.email.downcase
   end
 
+  test "password should not be blank" do
+     @user.password = " " * 6
+     assert_not @user.valid?
+  end
 
+  test "password should have a min length" do
+    @user.password = "a" * 5
+    assert_not @user.valid?
+  end
 end
