@@ -6,7 +6,7 @@ class UserTest < ActiveSupport::TestCase
   # end
 
   def setup
-    @user = User.new(name: "Vrajesh Patel", email: "user@example.com", phone: 8622, password: "foobar", password_confirmation: "foobar" )
+    @user = User.new(name: "Vrajesh Patel", email: "user@example.com", phone: 8622, password: "fo2obar", password_confirmation: "fo2obar" )
   end
 
   #test for unique ness in email
